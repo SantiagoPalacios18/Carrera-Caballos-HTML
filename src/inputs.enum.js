@@ -8,7 +8,8 @@ const input = Object.freeze({
     P3: Symbol(3),
     P4: Symbol(4),
     SELECT: Symbol('select'),
-    BACK: Symbol('back')
+    BACK: Symbol('back'),
+    NONE: Symbol('none')
 })
 
 export default input

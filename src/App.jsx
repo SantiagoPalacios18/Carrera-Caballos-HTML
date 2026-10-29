@@ -10,24 +10,23 @@ function App() {
   const [Ainput, setAinput] = useState("") //Actual Input, tecla seleccionada en el momento
 
   const handleKeyDown = (e) => {
-        SI /*Selected Input*/ = ''
-        switch (e.key) {
-            case 'ArrowUp': SI = input.UP
-            case 'ArrowDown': SI = input.DOWN
-            case 'ArrowLeft': SI = input.LEFT
-            case 'ArrowRight': SI = input.RIGHT
-            case 'Enter': SI = input.SELECT
-            case 'Escape': SI = input.BACK  
-
-            //Jugadores - Carrera de caballos
-            case 'a' || 'A': SI = input.P1
-            case 'f' || 'F': SI = input.P2
-            case 'j' || 'J': SI = input.P3
-            case 'ñ' || 'Ñ': SI = input.P4
-            
-        }
-  setAinput(e.key)
-  console.log(e.key)
+    var SI = input.NONE
+    switch (e.key) {
+        case 'ArrowUp': SI = input.UP; break;
+        case 'ArrowDown': SI = input.DOWN; break;
+        case 'ArrowLeft': SI = input.LEFT; break;
+        case 'ArrowRight': SI = input.RIGHT; break;
+        case 'Enter': SI = input.SELECT; break;
+        case 'Escape': SI = input.BACK;   break;
+ 
+        //Jugadores - Carrera de caballos
+        case 'a' || 'A': SI = input.P1; break;
+        case 'f' || 'F': SI = input.P2; break;
+        case 'j' || 'J': SI = input.P3; break;
+        case 'l' || 'L': SI = input.P4; break;
+        //default: SI = input.NONE
+    } 
+    console.log(SI )
   }
 
   useEffect(() => {
@@ -39,9 +38,8 @@ function App() {
       <div>
         <p>{test}</p>
         <p>{Ainput}</p>
-        <MainMenu test={test} setTest={setTest}/>
         <Routes>
-          {/*<Route path="/" element={<MainMenu/>} />*/}
+          <Route path="/" element={<MainMenu/>} />*/
         </Routes>
       </div>
     </>
