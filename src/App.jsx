@@ -10,7 +10,7 @@ function App() {
   const [Ainput, setAinput] = useState("") //Actual Input, tecla seleccionada en el momento
 
   const handleKeyDown = (e) => {
-    var SI = input.NONE
+    var SI /*Selected Input*/ = input.NONE
     switch (e.key) {
         case 'ArrowUp': SI = input.UP; break;
         case 'ArrowDown': SI = input.DOWN; break;
@@ -24,9 +24,9 @@ function App() {
         case 'f' || 'F': SI = input.P2; break;
         case 'j' || 'J': SI = input.P3; break;
         case 'l' || 'L': SI = input.P4; break;
-        //default: SI = input.NONE
+        default: SI = input.NONE; break;
     } 
-    console.log(SI )
+    setAinput(SI)
   }
 
   useEffect(() => {
@@ -36,10 +36,8 @@ function App() {
   return (
     <>
       <div>
-        <p>{test}</p>
-        <p>{Ainput}</p>
         <Routes>
-          <Route path="/" element={<MainMenu/>} />*/
+          <Route path="/" element={<MainMenu Ainput={Ainput} setAinput={setAinput}/>} />*/
         </Routes>
       </div>
     </>
