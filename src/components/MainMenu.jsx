@@ -1,50 +1,50 @@
-
 import { useState, useEffect } from "react"
 import input from '../inputs.enum'
 import './Styles/MainMenu.css'
 
 function MainMenu(props) {
-    const {Ainput, setAinput} = props
-    const vel = 10
-    const [pos, setPos] = useState({h: 0, v: 0})
+    const { Ainput } = props
+    const vel = 4
 
-    function setPosition(h, v){
-        setPos(prevPos =>{
-                const newH = h ? Math.max(0, prevPos.h + h) : prevPos.h;
-                const newV = v ? Math.max(0, prevPos.v + v) : prevPos.v;
-
-                h && console.log('nueva posicion h es: ' + newH)
-                v && console.log('nueva posicion v es: ' + newV)
-
-                document.documentElement.style.setProperty('--pos-h', newH.toString() + 'px')
-                document.documentElement.style.setProperty('--pos-v', newV.toString() + 'px')
-
-                setAinput(input.NONE);
-
-                return { h: newH, v: newV };
-            }
-        )
-    }
-
-    const handleInput = ()=>{
-        switch(Ainput){
-            case input.RIGHT: setPosition(vel, 0); break;
-            case input.LEFT : setPosition(-vel, 0); break;
-            case input.UP : setPosition(0, -vel); break;
-            case input.DOWN : setPosition(0, vel); break;
-            default: break;
-        }
-    }
-
-
+    const [pos, setPos] = useState({ h: 0, v: 0 })
 
     useEffect(() => {
-        handleInput()
+        let animationFrameId;
+
+        const updatePosition = () => {
+            setPos(prevPos => {
+                let newH = prevPos.h;
+                let newV = prevPos.v;
+
+                if (Ainput.includes(input.LEFT)) newH -= vel;
+                if (Ainput.includes(input.RIGHT)) newH += vel;
+                if (Ainput.includes(input.UP)) newV -= vel;
+                if (Ainput.includes(input.DOWN)) newV += vel;
+
+                newH = Math.max(0, newH);
+                newV = Math.max(0, newV);
+
+                return { h: newH, v: newV };
+            });
+
+            animationFrameId = requestAnimationFrame(updatePosition);
+        };
+
+        animationFrameId = requestAnimationFrame(updatePosition);
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
     }, [Ainput])
 
-    return(
+    const style1 = {
+        '--pos-h': `${pos.h}px`,
+        '--pos-v': `${pos.v}px`,
+    }
+
+    return (
         <>
-            <div id="pj"></div>
+            <div id="pj" style={style1}></div>
         </>
     )
 }

@@ -1,6 +1,6 @@
 :root{
-    --pos-h: 0;
-    --pos-v: 0;
+    --pos-h: 0px;
+    --pos-v: 0px;
 }
 
 #pj{
@@ -8,6 +8,6 @@
     width: 100px;
     height: 100px;
     position: fixed;
+    /* Usamos translate con las variables actualizadas en tiempo real */
     transform: translate(var(--pos-h), var(--pos-v));
-    transition: transform 0.1s ease-out;
 }
