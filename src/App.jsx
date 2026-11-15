@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import MainMenu from './components/MainMenu'
+import Lobby from './components/Lobby'
+import CopaWarnes from './components/CopaWarnes'
+import Leaderboard from './components/Leaderboard'
 import input from './inputs.enum'
 import './App.css'
 
@@ -19,11 +22,11 @@ function App() {
         case 'Enter': mappedInput = input.SELECT; break;
         case 'Escape': mappedInput = input.BACK; break;
         
-        // Jugadores - Carrera de caballos
+        // Jugadores - Carrera de caballos (P4 con la tecla Ñ)
         case 'a': case 'A': mappedInput = input.P1; break;
         case 'f': case 'F': mappedInput = input.P2; break;
         case 'j': case 'J': mappedInput = input.P3; break;
-        case 'l': case 'L': mappedInput = input.P4; break;
+        case 'ñ': case 'Ñ': mappedInput = input.P4; break;
         default: break;
       }
 
@@ -51,7 +54,7 @@ function App() {
         case 'a': case 'A': mappedInput = input.P1; break;
         case 'f': case 'F': mappedInput = input.P2; break;
         case 'j': case 'J': mappedInput = input.P3; break;
-        case 'l': case 'L': mappedInput = input.P4; break;
+        case 'ñ': case 'Ñ': mappedInput = input.P4; break;
         default: break;
       }
 
@@ -73,13 +76,12 @@ function App() {
   }, [])
 
   return (
-    <>
-      <div>
-        <Routes>
-          <Route path="/" element={<MainMenu Ainput={Ainput} />} />
-        </Routes>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<MainMenu Ainput={Ainput} />} />
+      <Route path="/lobby" element={<Lobby Ainput={Ainput} />} />
+      <Route path="/juego" element={<CopaWarnes Ainput={Ainput} />} />
+      <Route path="/leaderboard" element={<Leaderboard Ainput={Ainput} />} />
+    </Routes>
   )
 }
 

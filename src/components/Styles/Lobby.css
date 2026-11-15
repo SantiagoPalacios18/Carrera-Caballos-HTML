@@ -1,0 +1,52 @@
+.lobby-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+    /* [CONFIGURACIÓN DE IMAGEN DE FONDO PARA EL LOBBY] */
+    background-image: url('../assets/fondo-lobby.png'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111;
+}
+
+.lobby-title { font-size: 2rem; color: #ffcc00; }
+.lobby-instruction { font-size: 0.8rem; text-align: center; margin-bottom: 20px; }
+.players-status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 600px;
+}
+.player-box {
+    background: #222;
+    border: 3px solid #444;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.7rem;
+}
+.player-box.ready { border-color: #00ff00; }
+.color-indicator { width: 40px; height: 40px; border: 2px solid #fff; }
+.p1-color { background-color: red; }
+.p2-color { background-color: blue; }
+.p3-color { background-color: green; }
+.p4-color { background-color: yellow; }
+
+.lobby-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.5rem;
+    text-align: center;
+    border-top: 2px solid #333;
+    padding-top: 15px;
+}
+.sponsor-logo { width: 60px; height: 60px; background: #444; }

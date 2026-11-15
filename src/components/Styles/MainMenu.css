@@ -1,13 +1,37 @@
-:root{
-    --pos-h: 0px;
-    --pos-v: 0px;
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* [CONFIGURACIÓN DE IMAGEN DE FONDO PARA EL MENÚ] */
+    background-image: url('../assets/fondo-menu.png'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111; /* Color de respaldo por si carga lento */
 }
 
-#pj{
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    /* Usamos translate con las variables actualizadas en tiempo real */
-    transform: translate(var(--pos-h), var(--pos-v));
+.menu-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffcc00;
+    text-align: center;
+}
+.menu-options {
+    display: flex;
+    gap: 30px;
+}
+.menu-btn {
+    padding: 20px 40px;
+    background-color: #333;
+    border: 4px solid #555;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+}
+.menu-btn.selected, .menu-btn:hover {
+    background-color: #ffcc00;
+    color: #000;
+    border-color: #fff;
 }

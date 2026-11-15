@@ -1,0 +1,181 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    /* [CONFIGURACIÓN DE IMAGEN DE FONDO PARA EL JUEGO] */
+    background-image: url('../assets/fondo-juego.png'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111;
+}
+
+/* El área de la pista ahora es semitransparente para que se luzca la imagen de fondo general, pero mantiene su estructura */
+.track-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.85); /* Fondo semitransparente */
+    border: 3px solid #333;
+    overflow: hidden;
+    gap: 2px;
+}
+
+/* Los carriles ocupan todo el espacio disponible, dividiendo el alto exactamente entre 4 */
+.track-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    background: #1a1a1a;
+    border: 3px solid #333;
+    overflow: hidden; /* Evita cualquier barra o desbordamiento fuera de la pantalla */
+    gap: 2px;
+}
+
+.lane {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Divide equitativamente el alto total */
+    width: 100%;
+    border-bottom: 2px dashed #333;
+    position: relative;
+}
+
+.lane-label { 
+    font-size: 0.8rem; 
+    width: 40px; 
+    text-align: center;
+    color: #fff;
+    background: #222;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.lane-track {
+    position: relative;
+    height: 100%;
+    width: 100%; /* Restringido exactamente al 100% de la pantalla */
+    display: flex;
+    align-items: center;
+}
+
+/* Contenedor preparado para texturas o imágenes futuras mediante background-image */
+.asset-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Auto con ancho exacto el doble de su alto (Ancho: 60px, Alto: 30px) */
+.car-marker {
+    position: absolute;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid #fff;
+    transition: left 0.1s linear;
+}
+
+.pothole {
+    position: absolute;
+    height: 80%;
+    top: 10%;
+    background-color: #444;
+    border: 1px solid #000;
+}
+
+.precision-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+.precision-bar {
+    position: relative;
+    width: 80%;
+    height: 35px;
+    background: #222;
+    border: 3px solid #fff;
+}
+
+.target-zone {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-left: 2px dashed #fff;
+    border-right: 2px dashed #fff;
+}
+
+.action-line {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #ff0000;
+    top: 0;
+    z-index: 5;
+}
+
+/* Réplica visual del clic del jugador en la barra */
+.click-replica {
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    top: 0;
+    z-index: 4;
+    border: 1px solid #fff;
+}
+
+.bar-instructions { 
+    font-size: 0.5rem; 
+    text-align: center; 
+    color: #aaa; 
+}
+
+.winner-modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    border: 4px solid #ffcc00;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+.winner-modal input {
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    background: #111;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.winner-modal button {
+    padding: 10px 20px;
+    background: #ffcc00;
+    border: none;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+}
+
+.finish-line-marker {
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    border: 1px dashed #000;
+    z-index: 2;
+}
